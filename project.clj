@@ -2,7 +2,8 @@
   :description "Persistent Data Structures for JavaScript"
 
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2665"]]
+                 [org.clojure/clojurescript "0.0-2665"]
+                 [fast-zip "0.6.1"] ]
 
   :plugins [[lein-cljsbuild "1.0.4"]
             [cider/cider-nrepl "0.8.1"]]
@@ -25,6 +26,24 @@
       :compiler
       {:output-to "mori.bare.js",
        :output-dir "out-mori-adv"
+       :optimizations :advanced
+       :output-wrapper false
+       :pretty-print false}}
+
+     {:source-paths ["src/mori-zipper"],
+      :id "release-custom-zipper",
+      :compiler
+      {:output-to "mori.bare.js",
+       :output-dir "out-mori-zipper"
+       :optimizations :advanced
+       :output-wrapper false
+       :pretty-print false}}
+
+     {:source-paths ["src/mori-fastzip"],
+      :id "release-custom-fastzip",
+      :compiler
+      {:output-to "mori.bare.js",
+       :output-dir "out-mori-fastzip"
        :optimizations :advanced
        :output-wrapper false
        :pretty-print false}}
