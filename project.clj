@@ -2,7 +2,8 @@
   :description "Persistent Data Structures for JavaScript"
 
   :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/clojurescript "0.0-3308" :classifier "aot"]]
+                 [org.clojure/clojurescript "0.0-3308" :classifier "aot"]
+                 [fast-zip "0.7.0"]]
 
   :plugins [[lein-cljsbuild "1.0.5"]]
 
@@ -34,5 +35,9 @@
                     :output-to "release/build/mori.base.js"}
         :mutable   {:entries #{mori.mutable}
                     :output-to "release/build/mori.mutable.js"}
+        :zipper    {:entries #{mori.zip}
+                    :output-to "release/build/mori.zipper.js"}
+        :fastzip   {:entries #{mori.fastzip}
+                    :output-to "release/build/mori.fastzip.js"}
         :extra     {:entries #{clojure.data cljs.reader clojure.set mori.extra}
                     :output-to "release/build/mori.extra.js"}}}}]})
